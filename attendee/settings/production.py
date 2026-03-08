@@ -9,6 +9,9 @@ from .base import LOG_FORMATTERS
 DEBUG = False
 ALLOWED_HOSTS = ["*"]
 
+if os.getenv("CSRF_TRUSTED_ORIGINS"):
+    CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS").split(",")
+
 DATABASES = {
     "default": dj_database_url.config(
         env="DATABASE_URL",
