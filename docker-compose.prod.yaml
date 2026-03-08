@@ -10,7 +10,7 @@ services:
       - DJANGO_SETTINGS_MODULE=attendee.settings.production
       - POSTGRES_SSL_REQUIRE=false
       - DJANGO_SSL_REQUIRE=false
-    command: gunicorn attendee.wsgi -b 0.0.0.0:8000 --workers 4
+    command: sh -c "python manage.py collectstatic --noinput && gunicorn attendee.wsgi -b 0.0.0.0:8000 --workers 4"
     entrypoint: []
     depends_on:
       - postgres
