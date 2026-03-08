@@ -1,0 +1,6 @@
+{% autoescape off %}{% block content %}{% endblock %}
+
+---
+Attendee - Meeting bots made easy
+{{ current_site.domain }}
+{% endautoescape %}
